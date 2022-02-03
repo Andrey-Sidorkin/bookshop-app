@@ -11,8 +11,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 @Table(name = "books")
 public class Book {
     @Id
@@ -30,76 +38,4 @@ public class Book {
     private String publishingHouse;
     @Column(name = "pages_number")
     private Integer pagesNumber;
-
-    public Book() {
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public List<Author> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(List<Author> authors) {
-        this.authors = authors;
-    }
-
-    public Genre getGenre() {
-        return genre;
-    }
-
-    public void setGenre(Genre genre) {
-        this.genre = genre;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getPublishingHouse() {
-        return publishingHouse;
-    }
-
-    public void setPublishingHouse(String publishingHouse) {
-        this.publishingHouse = publishingHouse;
-    }
-
-    public Integer getPagesNumber() {
-        return pagesNumber;
-    }
-
-    public void setPagesNumber(Integer pagesNumber) {
-        this.pagesNumber = pagesNumber;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{"
-                + "isbn='" + isbn + '\''
-                + ", title='" + title + '\''
-                + ", authors=" + authors
-                + ", genre=" + genre
-                + ", description='" + description + '\''
-                + ", publishingHouse='" + publishingHouse + '\''
-                + ", pagesNumber=" + pagesNumber
-                + '}';
-    }
 }
