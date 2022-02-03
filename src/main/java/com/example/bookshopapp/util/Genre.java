@@ -11,7 +11,7 @@ public enum Genre {
 
     public static class Pattern {
         public static final String GENRES_PATTERN =
-                "FICTION|NATURAL_SCIENCE|HUMANITIES|"
+                "(?i)FICTION|NATURAL_SCIENCE|HUMANITIES|"
                         + "PHILOSOPHY|POETRY|DRAMA|HISTORY";
     }
 }
