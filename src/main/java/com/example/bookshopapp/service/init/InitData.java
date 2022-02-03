@@ -38,6 +38,7 @@ public class InitData {
         proustBook1.setPublishingHouse("Penguin Books");
         proustBook1.setGenre(Genre.FICTION);
         proustBook1.setAuthors(List.of(proust));
+        proustBook1.setPagesNumber(254);
 
         Book proustBook2 = new Book();
         proustBook2.setTitle("In the Shadow of Young Girls in Flower");
@@ -48,6 +49,7 @@ public class InitData {
         proustBook2.setPublishingHouse("Penguin Books");
         proustBook2.setGenre(Genre.FICTION);
         proustBook2.setAuthors(List.of(proust));
+        proustBook1.setPagesNumber(227);
 
         authorService.save(proust);
         bookService.save(proustBook1);
