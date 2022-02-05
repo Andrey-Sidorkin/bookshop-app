@@ -18,7 +18,6 @@ public class InitData {
     private AuthorService authorService;
 
     @PostConstruct
-    @Transactional
     public void initialize() {
         Author proust = new Author();
         proust.setName("Marcel");
