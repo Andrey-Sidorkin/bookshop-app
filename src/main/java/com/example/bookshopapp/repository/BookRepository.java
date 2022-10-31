@@ -1,7 +1,7 @@
 package com.example.bookshopapp.repository;
 
 import com.example.bookshopapp.model.Book;
-import com.example.bookshopapp.util.Genre;
+import com.example.bookshopapp.model.Book.Genre;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

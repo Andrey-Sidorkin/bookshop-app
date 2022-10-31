@@ -3,7 +3,6 @@ package com.example.bookshopapp.service.impl;
 import com.example.bookshopapp.model.Book;
 import com.example.bookshopapp.repository.BookRepository;
 import com.example.bookshopapp.service.BookService;
-import com.example.bookshopapp.util.Genre;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> getByGenre(Genre genre) {
+    public List<Book> getByGenre(Book.Genre genre) {
         return bookRepository.findByGenre(genre);
     }
 

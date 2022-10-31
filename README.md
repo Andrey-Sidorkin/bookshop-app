@@ -34,6 +34,6 @@ character sequence (case-insensitive)<br>
 ## How to start
 
 Before start you should replace fields ```YOUR_USERNAME``` 
-and ```YOUR_PASSWORD``` in application.properties file with your own.<br>
-As an initial data an author Marcel Proust is injected and two books by him: "The Prisoner" and
+and ```YOUR_PASSWORD``` in application.yml file with your own.<br>
+As initial data an author Marcel Proust and two books by him are injected to DB: "The Prisoner" and
 "In the Shadow of Young Girls in Flower". Enjoy!

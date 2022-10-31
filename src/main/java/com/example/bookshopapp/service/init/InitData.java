@@ -4,7 +4,6 @@ import com.example.bookshopapp.model.Author;
 import com.example.bookshopapp.model.Book;
 import com.example.bookshopapp.service.AuthorService;
 import com.example.bookshopapp.service.BookService;
-import com.example.bookshopapp.util.Genre;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
@@ -34,7 +33,7 @@ public class InitData {
                 + "Gomorrhe left off, with our narrator Marcel and his partner Albertine "
                 + "now back in Paris, having left Balbec behind.");
         proustBook1.setPublishingHouse("Penguin Books");
-        proustBook1.setGenre(Genre.FICTION);
+        proustBook1.setGenre(Book.Genre.FICTION);
         proustBook1.setAuthors(List.of(proust));
         proustBook1.setPagesNumber(254);
 
@@ -45,7 +44,7 @@ public class InitData {
                 + "spectacular dissection of male and female adolescence, charged with "
                 + "the narrator's memories of Paris and the Normandy seaside.");
         proustBook2.setPublishingHouse("Penguin Books");
-        proustBook2.setGenre(Genre.FICTION);
+        proustBook2.setGenre(Book.Genre.FICTION);
         proustBook2.setAuthors(List.of(proust));
         proustBook2.setPagesNumber(227);
 

@@ -1,12 +1,12 @@
 package com.example.bookshopapp.controller;
 
+import static com.example.bookshopapp.model.Book.BookPattern.ISBN_PATTERN;
+
 import com.example.bookshopapp.dto.mapper.BookMapper;
 import com.example.bookshopapp.dto.request.BookRequestDto;
 import com.example.bookshopapp.dto.response.BookResponseDto;
 import com.example.bookshopapp.model.Book;
 import com.example.bookshopapp.service.BookService;
-import com.example.bookshopapp.util.Genre;
-import com.example.bookshopapp.util.IsbnPattern;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
@@ -34,15 +34,15 @@ public class BookController {
 
     @GetMapping("/{isbn}")
     public BookResponseDto get(@PathVariable @Pattern(
-            regexp = IsbnPattern.ISBN_PATTERN) String isbn) {
+            regexp = ISBN_PATTERN) String isbn) {
         Book book = bookService.get(isbn);
         return mapper.modelToDto(book);
     }
 
     @GetMapping("/by-genre")
     public List<BookResponseDto> getByGenre(@RequestParam(name = "name") @Pattern(
-            regexp = Genre.Pattern.GENRES_PATTERN) String genre) {
-        return bookService.getByGenre(Genre.valueOf(genre.toUpperCase()))
+            regexp = Book.BookPattern.GENRES_PATTERN) String genre) {
+        return bookService.getByGenre(Book.Genre.valueOf(genre.toUpperCase()))
                 .stream()
                 .map(mapper::modelToDto)
                 .collect(Collectors.toList());

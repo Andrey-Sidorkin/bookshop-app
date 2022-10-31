@@ -1,6 +1,5 @@
 package com.example.bookshopapp.model;
 
-import com.example.bookshopapp.util.Genre;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,4 +37,21 @@ public class Book {
     private String publishingHouse;
     @Column(name = "pages_number")
     private Integer pagesNumber;
+
+    public enum Genre {
+        FICTION,
+        NATURAL_SCIENCE,
+        HUMANITIES,
+        PHILOSOPHY,
+        POETRY,
+        DRAMA,
+        HISTORY;
+    }
+
+    public static class BookPattern {
+        public static final String GENRES_PATTERN =
+                "(?i)FICTION|NATURAL_SCIENCE|HUMANITIES|"
+                        + "PHILOSOPHY|POETRY|DRAMA|HISTORY";
+        public static final String ISBN_PATTERN = "\\d-\\d{5}-\\d{3}-\\d";
+    }
 }
