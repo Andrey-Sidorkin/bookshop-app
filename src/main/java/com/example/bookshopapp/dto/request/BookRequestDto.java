@@ -1,8 +1,8 @@
 package com.example.bookshopapp.dto.request;
 
-import static com.example.bookshopapp.model.Book.BookPattern.GENRES_PATTERN;
-import static com.example.bookshopapp.model.Book.BookPattern.ISBN_PATTERN;
+import static com.example.bookshopapp.model.Book.ISBN_PATTERN;
 
+import com.example.bookshopapp.lib.ValidGenre;
 import java.util.List;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -13,14 +13,13 @@ import lombok.Data;
 @Data
 public class BookRequestDto {
     @NotBlank
-    @Pattern(regexp = ISBN_PATTERN)
+    @Pattern(regexp = ISBN_PATTERN, message = "ISBN is not valid")
     private String isbn;
     @NotBlank
     private String title;
     @NotEmpty
     private List<Long> authorsIds;
-    @NotBlank
-    @Pattern(regexp = GENRES_PATTERN)
+    @ValidGenre
     private String genre;
     private String description;
     private String publishingHouse;

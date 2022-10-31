@@ -1,11 +1,13 @@
 package com.example.bookshopapp.controller;
 
-import static com.example.bookshopapp.model.Book.BookPattern.ISBN_PATTERN;
+import static com.example.bookshopapp.model.Book.ISBN_PATTERN;
 
 import com.example.bookshopapp.dto.mapper.BookMapper;
 import com.example.bookshopapp.dto.request.BookRequestDto;
 import com.example.bookshopapp.dto.response.BookResponseDto;
+import com.example.bookshopapp.lib.ValidGenre;
 import com.example.bookshopapp.model.Book;
+import com.example.bookshopapp.model.Book.Genre;
 import com.example.bookshopapp.service.BookService;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,15 +36,14 @@ public class BookController {
 
     @GetMapping("/{isbn}")
     public BookResponseDto get(@PathVariable @Pattern(
-            regexp = ISBN_PATTERN) String isbn) {
+            regexp = ISBN_PATTERN, message = "ISBN is not valid") String isbn) {
         Book book = bookService.get(isbn);
         return mapper.modelToDto(book);
     }
 
     @GetMapping("/by-genre")
-    public List<BookResponseDto> getByGenre(@RequestParam(name = "name") @Pattern(
-            regexp = Book.BookPattern.GENRES_PATTERN) String genre) {
-        return bookService.getByGenre(Book.Genre.valueOf(genre.toUpperCase()))
+    public List<BookResponseDto> getByGenre(@RequestParam(name = "name") @ValidGenre String genre) {
+        return bookService.getByGenre(Genre.valueOf(genre.toUpperCase()))
                 .stream()
                 .map(mapper::modelToDto)
                 .collect(Collectors.toList());
@@ -74,7 +75,8 @@ public class BookController {
     }
 
     @DeleteMapping("/{isbn}")
-    public void delete(@PathVariable String isbn) {
+    public void delete(@PathVariable @Pattern(
+            regexp = ISBN_PATTERN, message = "ISBN is not valid") String isbn) {
         bookService.delete(isbn);
     }
 }

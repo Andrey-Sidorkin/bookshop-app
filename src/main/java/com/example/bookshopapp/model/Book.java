@@ -22,6 +22,8 @@ import lombok.ToString;
 @ToString
 @Table(name = "books")
 public class Book {
+    public static final String ISBN_PATTERN = "\\d-\\d{5}-\\d{3}-\\d";
+
     @Id
     private String isbn;
     private String title;
@@ -46,12 +48,5 @@ public class Book {
         POETRY,
         DRAMA,
         HISTORY;
-    }
-
-    public static class BookPattern {
-        public static final String GENRES_PATTERN =
-                "(?i)FICTION|NATURAL_SCIENCE|HUMANITIES|"
-                        + "PHILOSOPHY|POETRY|DRAMA|HISTORY";
-        public static final String ISBN_PATTERN = "\\d-\\d{5}-\\d{3}-\\d";
     }
 }

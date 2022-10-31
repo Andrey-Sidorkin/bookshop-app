@@ -40,6 +40,10 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void delete(String isbn) {
-        bookRepository.deleteById(isbn);
+        try {
+            bookRepository.deleteById(isbn);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to delete book with ISBN " + isbn);
+        }
     }
 }
