@@ -9,7 +9,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
@@ -48,7 +47,7 @@ public class InitData {
         proustBook2.setPublishingHouse("Penguin Books");
         proustBook2.setGenre(Genre.FICTION);
         proustBook2.setAuthors(List.of(proust));
-        proustBook1.setPagesNumber(227);
+        proustBook2.setPagesNumber(227);
 
         authorService.save(proust);
         bookService.save(proustBook1);
