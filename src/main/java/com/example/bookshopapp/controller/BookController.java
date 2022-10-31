@@ -36,7 +36,7 @@ public class BookController {
 
     @GetMapping("/{isbn}")
     public BookResponseDto get(@PathVariable @Pattern(
-            regexp = ISBN_PATTERN, message = "ISBN is not valid") String isbn) {
+            regexp = ISBN_PATTERN, message = "'${validatedValue}' is not a valid ISBN") String isbn) {
         Book book = bookService.get(isbn);
         return mapper.modelToDto(book);
     }
@@ -76,7 +76,7 @@ public class BookController {
 
     @DeleteMapping("/{isbn}")
     public void delete(@PathVariable @Pattern(
-            regexp = ISBN_PATTERN, message = "ISBN is not valid") String isbn) {
+            regexp = ISBN_PATTERN, message = "'${validatedValue}' is not a valid ISBN") String isbn) {
         bookService.delete(isbn);
     }
 }

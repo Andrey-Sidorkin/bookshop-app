@@ -15,7 +15,7 @@ import javax.validation.constraints.NotBlank;
 @Retention(RUNTIME)
 @NotBlank(message = "Genre can't be empty")
 public @interface ValidGenre {
-    String message() default "Genre is not valid";
+    String message() default "'${validatedValue}' is not a valid genre";
 
     Class<?>[] groups() default {};
 
