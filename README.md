@@ -33,7 +33,7 @@ character sequence (case-insensitive)<br>
 
 ## How to start
 
-Before start you should replace fields ```YOUR_USERNAME``` 
-and ```YOUR_PASSWORD``` in application.yml file with your own.<br>
+Before start you can replace fields ```YOUR_USERNAME``` 
+and ```YOUR_PASSWORD``` in application.yml file with your own in order to get access to H2 console.<br>
 As initial data an author Marcel Proust and two books by him are injected to DB: "The Prisoner" and
 "In the Shadow of Young Girls in Flower". Enjoy!

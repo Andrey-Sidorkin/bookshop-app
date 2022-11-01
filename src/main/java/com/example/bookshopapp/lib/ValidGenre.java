@@ -8,12 +8,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.ReportAsSingleViolation;
 import javax.validation.constraints.NotBlank;
 
 @Constraint(validatedBy = GenreValidator.class)
 @Target({FIELD, PARAMETER})
 @Retention(RUNTIME)
-@NotBlank(message = "Genre can't be empty")
+@NotBlank
+@ReportAsSingleViolation
 public @interface ValidGenre {
     String message() default "'${validatedValue}' is not a valid genre";
 

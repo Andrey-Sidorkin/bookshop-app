@@ -13,7 +13,6 @@ import lombok.Data;
 
 @Data
 public class BookRequestDto {
-    @NotBlank
     @Pattern(regexp = ISBN_PATTERN, message = "'${validatedValue}' is not a valid ISBN")
     private String isbn;
     @NotBlank(message = "Title cannot be empty")
