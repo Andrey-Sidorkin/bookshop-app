@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 @Entity
 @Getter
@@ -17,6 +19,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Table(name = "authors")
+@SQLDelete(sql = "UPDATE authors SET isDeleted = true WHERE id = ?")
+@Where(clause = "isDeleted = false")
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +30,5 @@ public class Author {
     @Column(name = "year_of_birth")
     private Short yearOfBirth;
     private String biography;
+    private boolean isDeleted;
 }
