@@ -5,7 +5,6 @@ import static javax.persistence.EnumType.STRING;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -16,7 +15,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
@@ -56,6 +54,6 @@ public class Book {
         PHILOSOPHY,
         POETRY,
         DRAMA,
-        HISTORY;
+        HISTORY
     }
 }
