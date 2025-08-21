@@ -24,7 +24,7 @@ import org.hibernate.annotations.Where;
 @Setter
 @ToString
 @Table(name = "books")
-@SQLDelete(sql = "UPDATE books SET isDeleted = true WHERE id = ?")
+@SQLDelete(sql = "UPDATE books SET isDeleted = true WHERE isbn = ?")
 @Where(clause = "isDeleted = false")
 public class Book {
     public static final String ISBN_PATTERN = "\\d-\\d{5}-\\d{3}-\\d";
